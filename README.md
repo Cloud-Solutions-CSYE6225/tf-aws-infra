@@ -12,18 +12,18 @@ The pull request cannot be merged unless the checks pass successfully.
 
 ## CI Workflow Overview
 steps in the Workflow
-Checkout Code: The workflow checks out the repository code.
-Terraform Setup: The workflow installs Terraform CLI using the hashicorp/setup-terraform action.
-Terraform Init: Initializes Terraform, downloading necessary providers and modules.
-Terraform Formatting Check: Runs terraform fmt -check -recursive to ensure all .tf files are formatted according to Terraform standards.
-Terraform Validation: Runs terraform validate to check for syntax errors or configuration issues.
+**Checkout Code**: The workflow checks out the repository code.
+**Terraform Setup:** The workflow installs Terraform CLI using the hashicorp/setup-terraform action.
+**Terraform Init:** Initializes Terraform, downloading necessary providers and modules.
+**Terraform Formatting Check:** Runs terraform fmt -check -recursive to ensure all .tf files are formatted according to Terraform standards.
+**Terraform Validation:** Runs terraform validate to check for syntax errors or configuration issues.
 
 ## Branch Protection
 To enforce code quality and prevent broken configurations from being merged into the main branch, GitHub branch protection rules have been enabled. This means that:
 
-A pull request cannot be merged unless the Terraform CI checks pass.
-The status checks required for merging include terraform fmt and terraform validate.
-This ensures that all pull requests are validated and formatted properly before merging.
+A pull request can only be merged after all Terraform CI checks have passed.
+The required status checks include terraform fmt for code formatting and terraform validate for configuration validation.
+This process ensures that every pull request meets formatting standards and passes validation before being merged.
 
 
 ## Prerequisites for terraform
